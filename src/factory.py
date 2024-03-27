@@ -4,12 +4,14 @@ import sys
 
 from flask import Flask, render_template
 
+from src.modulos import bootstrap
+
 
 def create_app(config_filename: str = 'config.dev.json') -> Flask:
     app = Flask(__name__,
                 instance_relative_config=True,
-                template_folder= "templates",
-                static_folder= "static")
+                template_folder="templates",
+                static_folder="static")
 
     try:
         os.makedirs(app.instance_path)
@@ -21,6 +23,8 @@ def create_app(config_filename: str = 'config.dev.json') -> Flask:
     except FileNotFoundError:
         app.logger.critical("Não existe o arquivo de configuração informado")
         sys.exit(1)
+
+    bootstrap.init_app(app)
 
     @app.route('/')
     @app.route('/index')
