@@ -5,7 +5,7 @@ import sys
 from flask import Flask, render_template
 
 from src.modulos import bootstrap,minify,db
-from src.utils import existe_esquema
+from src.utils import existe_esquema, seeding
 
 
 def create_app(config_filename: str = 'config.dev.json') -> Flask:
@@ -35,6 +35,8 @@ def create_app(config_filename: str = 'config.dev.json') -> Flask:
             app.logger.critical("Efetuar a migração /upgrade do banco")
             sys.exit(1)
 
+        if app.config.get('SEEDING', False):
+            seeding(db,)
     @app.route('/')
     @app.route('/index')
     def index():
