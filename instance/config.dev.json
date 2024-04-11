@@ -1,7 +1,8 @@
 {
+  "SECRET_KEY": "segredo",
   "BOOTSTRAP_BOOTSWATCH_THEME": "sketchy",
-  "SQLALCHEMY_DATABASE_URI": "sqlite+pysqlite:///banco_de_dados.sqlite3",
 
+  "SQLALCHEMY_DATABASE_URI": "sqlite+pysqlite:///banco_de_dados.sqlite3",
   "SQLITE_DB": "banco_de_dados.sqlite3",
 
   "SEEDING": true
