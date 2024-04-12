@@ -16,7 +16,7 @@ class User(db.Model, DataMixin, UserMixin):
     email_normalizado: Mapped[str] = mapped_column(String(256), nullable=False, unique=True, index=True)
     hash_password: Mapped[str] = mapped_column(String(256), nullable=False)
 
-    ativo: Mapped[Boolean] = mapped_column(Boolean, nullable=True, default=False)
+    ativo: Mapped[Boolean] = mapped_column(Boolean, nullable=True, default=True)
 
     @property
     def is_active(self):

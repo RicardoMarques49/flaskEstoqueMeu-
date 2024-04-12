@@ -45,7 +45,7 @@ def create_app(config_filename: str = 'config.dev.json') -> Flask:
         except ValueError:
             return None
         sentenca = db.select(User).where(User.id == auth_id)
-        usuario = db.session.execute(sentenca).scalar_one_none()
+        usuario = db.session.execute(sentenca).scalar_one_or_none()
         return usuario
 
 

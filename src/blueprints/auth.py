@@ -7,7 +7,7 @@ from src.models.usuario import User
 from src.modulos import db
 from src.forms.auth import LoginForm
 
-bp = Blueprint('auth', __name__, url_prefix='/admin/user')
+bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
 @bp.route('/login', methods=['GET', 'POST'])
